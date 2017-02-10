@@ -5,75 +5,84 @@
 #omg an import!!!!!
 import math
 
-#Initially, the variables A and B contain the value 0.
-A = 0
-B = 0
-
-#1 X n means set the variable X to the integer value n;
-def newValue(x, n):
-    x = n
-    return x
-
-#2 X means output the value of variable X to the screen;
-def output(x):
-    print(x)
-
-#3 X Y means calculate X + Y and store the value in variable X;
-def add(x, y):
-    x += y
-    return x
-
-#4 X Y means calculate X  Y and store the value in variable X;
-def multiply(x, y):
-    x *= y
-    return x
-
-#5 X Y means calculate X - Y and store the value in variable X;
-def subtract(x, y):
-    x -= y
-    return x
-
-#6 X Y means calculate the quotient of X/Y and store the value in variable X as an integer, discarding the remainder.
-def divide(x, y):
-    x /= y
-    if x > 0:
-        x = math.floor(x)
-        return x
-    elif x < 0:
-        #Round up if it's negative 'cause yeah
-        x = math.ceil(x)
-        return x
-
-#Set the letters to be variables.
-def toVar(letter):
-    if letter == "A":
-        return A
-    else:
-        return B
-
 #index 1 is first space, index 3 is second space.
 def read():
-    b = B
-    a = A
+    # Initially, the variables A and B contain the value 0.
+    A = 0
+    B = 0
     while True:
         entered = raw_input()
         if entered == "7":
             break
         else:
+            #The letter, A or B.
             letter = entered[2]
-            letter = toVar(letter)
             number = entered[0]
-            if number == "1":
-                value = int(entered[4:])
-                letter = newValue(letter, value)
-            elif number == "2":
-                output(letter)
-            elif number == "3":
-                letter2 = entered[4]
-                letter2 = toVar(letter2)
-                add(letter, letter2)
-            elif number == "4":
-                letter2 = entered[4]
-                letter = toVar(letter2)
-                multiply(letter, letter2)
+            #1 X n means set the variable X to the integer value n;
+            if "1" == number:
+                if "A" == letter:
+                    A = int(entered[4:])
+                else:
+                    B = int(entered[4:])
+            #2 X means output the value of variable X to the screen;
+            elif "2" == number:
+                if "A" == letter:
+                    print(A)
+                else:
+                    print(B)
+
+            #3 X Y means calculate X + Y and store the value in variable X;
+            elif "3" == number:
+                if "A" == letter:
+                    if "A" == entered[4]:
+                        A += A
+                    else:
+                        A += B
+                else:
+                    if "A" == entered[4]:
+                        B += A
+                    else:
+                        B += B
+            #4 X Y means calculate X * Y and store the value in variable X;
+            elif "4" == number:
+                if "A" == letter:
+                    if "A" == entered[4]:
+                        A *= A
+                    else:
+                        A *= B
+                else:
+                    if "A" == entered[4]:
+                        B *= A
+                    else:
+                        B *= B
+            #5 X Y means calculate X - Y and store the value in variable X;
+            elif "5" == number:
+                if "A" == letter:
+                    if "A" == entered[4]:
+                        A -= A
+                    else:
+                        A -= B
+                else:
+                    if "A" == entered[4]:
+                        B -= A
+                    else:
+                        B -= B
+            #6 X Y means calculate the quotient of X/Y and store the value in variable X as an integer, discarding the remainder.
+            elif "6" == number:
+                if "A" == letter:
+                    if "A" == entered[4]:
+                        return 1
+                    elif "B" == entered[4]:
+                        if A > 0:
+                            A = math.floor(A/B)
+                        else:
+                            A = math.ceil(A/B)
+                else:
+                    if "B" == entered[4]:
+                        return 1
+                    elif "A" == entered[4]:
+                        if B > 0:
+                            B = math.floor(B/A)
+                        else:
+                            B = math.ceil(B/A)
 read()
