@@ -11,7 +11,7 @@ def read():
     A = 0
     B = 0
     while True:
-        entered = raw_input()
+        entered = input()
         if entered == "7":
             break
         else:
