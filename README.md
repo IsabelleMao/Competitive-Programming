@@ -1,7 +1,7 @@
-# CCC
-My answers to the UoW CCCs of previous years. Has no affiliation whatsoever with anything.
-Written by me, myself, and I. With a little bit of help from the internet (but not really)
+# Competitive Programming
+I don't actually know what I'm doing.
 
-ha
-ha
-haaaaaaa
+Fake it 'til you make it.
+
+print "hello world" omg i did it!!!11!one
+All answers are written by me, although you can probably find very similar ones elsewhere.
